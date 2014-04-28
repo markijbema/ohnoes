@@ -9,6 +9,7 @@ module Ohnoes
       backtrace = error["backtrace"]["line"]
 
       frontend_exception = FrontendException.new(error["class"], error["message"], backtrace)
+      raise frontend_exception
 
       # inlined somewhat from Appsignal::Rack::Listener
       key = SecureRandom.uuid
